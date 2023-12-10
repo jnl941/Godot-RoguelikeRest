@@ -65,7 +65,10 @@ max_hp = 4
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="hp_changed" from="Player" to="UI" method="_on_Player_hp_changed"]
 [connection signal="weapon_droped" from="Player" to="UI" method="_on_Player_weapon_droped"]
 [connection signal="weapon_picked_up" from="Player" to="UI" method="_on_Player_weapon_picked_up"]
 [connection signal="weapon_switched" from="Player" to="UI" method="_on_Player_weapon_switched"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
