@@ -17,7 +17,7 @@ func _ready():
 
 
 func _on_name_text_changed():
-	player_name = $VBoxContainer/name.text
+	player_name = $VBoxContainer/Control/name.text
 	pass # Replace with function body.
 
 
@@ -25,5 +25,6 @@ func _on_bEnd_pressed():
 	if(player_name == ""):
 		return
 	LeaderboardData.save_data_local(player_name)
+	SavedData.reset_data()
 	SceneTransistor.start_transition_to("res://MainScreen/MainScreen.tscn")
 	pass # Replace with function body.

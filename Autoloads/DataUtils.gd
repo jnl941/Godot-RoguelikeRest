@@ -1,10 +1,5 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 export var score_per_kill: int = 200
 export var score_per_bossKill: int = 2000
 export var score_per_floor: int = 750

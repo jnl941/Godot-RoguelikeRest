@@ -10,12 +10,9 @@ var page_count: int = 0
 onready var playerRow_tscn: PackedScene = preload("res://Leaderboard/PlayerRow.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	for i in range(10):
-		LeaderboardData.save_data_local("javi" + String(i))
-		pass
 	print(JSON.print(LeaderboardData.rest_api_json, "\t"))
-	page_count = (LeaderboardData.get_data_local()["player_count"] / LeaderboardData.players_per_page) + 1
+	if(!LeaderboardData.get_data_local().empty()):
+		page_count = (LeaderboardData.get_data_local()["player_count"] / LeaderboardData.players_per_page) + 1
 	update_page(0)
 	pass # Replace with function body.
 
@@ -78,6 +75,7 @@ func add_player_row(data: Dictionary):
 	data["score"] = DataUtils.get_score(data)
 	for n in new_player_row.get_children():
 		new_player_row.get_node(n.name).text = String(data[n.name])
+	new_player_row.get_node("time").text = DataUtils.get_date_from_seconds(data["time"])
 	list.add_child(new_player_row)
 	pass
 

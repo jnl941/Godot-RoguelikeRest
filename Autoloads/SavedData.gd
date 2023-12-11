@@ -25,6 +25,9 @@ func get_data_as_dict(name: String) -> Dictionary:
 
 func reset_data() -> void:
 	num_floor = 0
+	num_bKills = 0
+	num_kills = 0
+	time_secs = 0
 	
 	hp = 4
 	weapons = []

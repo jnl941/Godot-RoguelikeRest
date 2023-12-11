@@ -7,17 +7,13 @@ extends Node
 
 var rest_api_json: Dictionary
 var rest_api_json_string: String
-
 var players_per_page = 8
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
 func save_data_local(player_name: String):
 	#TODO: make it work with html protocols and rest
 	var data_to_send: Dictionary = SavedData.get_data_as_dict(player_name)
+	
+	#START: What the REST API must do in the backend
 	if(rest_api_json.has("player_count")):
 		rest_api_json["player_count"] += 1
 	else:
@@ -31,6 +27,7 @@ func save_data_local(player_name: String):
 			"page": page_num,
 			"players": []
 		})
+	
 	players[page_num]["players"].append(data_to_send)
 	
 	

@@ -16,9 +16,9 @@ script = ExtResource( 2 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 13.0
-margin_top = 13.0
+margin_top = 1.0
 margin_right = -13.0
-margin_bottom = -13.0
+margin_bottom = -25.0
 custom_constants/separation = 17
 alignment = 1
 
@@ -38,20 +38,34 @@ text = "Name your fallen hero
 so that it may be remembered:"
 align = 1
 
-[node name="name" type="TextEdit" parent="VBoxContainer"]
-margin_left = 160.0
+[node name="Control" type="Control" parent="VBoxContainer"]
 margin_top = 158.0
-margin_right = 305.0
+margin_right = 454.0
 margin_bottom = 178.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="name" type="TextEdit" parent="VBoxContainer/Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -100.0
+margin_right = 100.0
+margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 rect_clip_content = true
 
-[node name="bEnd" type="Button" parent="VBoxContainer"]
-margin_left = 210.0
+[node name="Control2" type="Control" parent="VBoxContainer"]
 margin_top = 195.0
-margin_right = 106.0
+margin_right = 454.0
 margin_bottom = 215.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="bEnd" type="Button" parent="VBoxContainer/Control2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -21.0
+margin_right = 29.0
+margin_bottom = 20.0
 text = "End"
 
-[connection signal="text_changed" from="VBoxContainer/name" to="." method="_on_name_text_changed"]
-[connection signal="pressed" from="VBoxContainer/bEnd" to="." method="_on_bEnd_pressed"]
+[connection signal="text_changed" from="VBoxContainer/Control/name" to="." method="_on_name_text_changed"]
+[connection signal="pressed" from="VBoxContainer/Control2/bEnd" to="." method="_on_bEnd_pressed"]
