@@ -17,6 +17,7 @@ onready var dust_position: Position2D = get_node("DustPosition")
 
 func _ready() -> void:
 	emit_signal("weapon_picked_up", weapons.get_child(0).get_texture())
+	SavedData.player = self
 	
 	_restore_previous_state()
 	

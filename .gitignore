@@ -9,3 +9,9 @@ export_presets.cfg
 # Mono-specific ignores
 .mono/
 data_*/
+addons/ridiculous_coding/*
+cover.png.import
+readme-enable.png.import
+readme-example.gif
+readme-font.png.import
+cover.png.import

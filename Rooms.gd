@@ -11,15 +11,15 @@ const FLOOR_TILE_INDEX: int = 14
 const RIGHT_WALL_TILE_INDEX: int = 5
 const LEFT_WALL_TILE_INDEX: int = 6
 
-export(int) var num_levels: int = 5
+export(int) var num_levels: int = 8
 
 onready var player: KinematicBody2D = get_parent().get_node("Player")
 
 
 func _ready() -> void:
 	SavedData.num_floor += 1
-	if SavedData.num_floor == 3:
-		num_levels = 3
+	if SavedData.num_floor == 5:
+		num_levels = 5
 	_spawn_rooms()
 	
 	
@@ -37,7 +37,7 @@ func _spawn_rooms() -> void:
 			if i == num_levels - 1:
 				room = END_ROOMS[randi() % END_ROOMS.size()].instance()
 			else:
-				if SavedData.num_floor == 3:
+				if(SavedData.num_floor % 5) == 0:
 					room = SLIME_BOSS_SCENE.instance()
 				else:
 					if (randi() % 3 == 0 and not special_room_spawned) or (i == num_levels - 2 and not special_room_spawned):

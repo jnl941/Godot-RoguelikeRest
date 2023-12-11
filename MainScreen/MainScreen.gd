@@ -48,6 +48,8 @@ func choose():
 			_on_bLeaderboard_pressed()
 
 func update_choice():
+	if(selected < 0):
+		selected = buttons.size()-selected
 	selected %= buttons.size()
 	
 	var button : Button
@@ -55,7 +57,7 @@ func update_choice():
 	pass
 
 func _on_bLeaderboard_pressed():
-	SceneTransistor.start_transition_to("res://")
+	SceneTransistor.start_transition_to("res://Leaderboard/Leaderboard.tscn")
 	pass # Replace with function body.
 
 

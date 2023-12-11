@@ -3,22 +3,32 @@
 [node name="PlayerRow" type="HBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_constants/separation = 10
+custom_constants/separation = 20
 
-[node name="name" type="Label" parent="."]
+[node name="pname" type="Label" parent="."]
 margin_top = 128.0
-margin_right = 150.0
+margin_right = 100.0
 margin_bottom = 142.0
-rect_min_size = Vector2( 150, 0 )
+rect_min_size = Vector2( 100, 0 )
 rect_clip_content = true
 text = "playerName"
 align = 2
 clip_text = true
 
-[node name="kills" type="Label" parent="."]
-margin_left = 160.0
+[node name="floors" type="Label" parent="."]
+margin_left = 120.0
 margin_top = 128.0
-margin_right = 210.0
+margin_right = 170.0
+margin_bottom = 142.0
+rect_min_size = Vector2( 50, 0 )
+text = "9 kills"
+align = 2
+clip_text = true
+
+[node name="kills" type="Label" parent="."]
+margin_left = 190.0
+margin_top = 128.0
+margin_right = 240.0
 margin_bottom = 142.0
 rect_min_size = Vector2( 50, 0 )
 text = "9 kills"
@@ -26,19 +36,19 @@ align = 2
 clip_text = true
 
 [node name="bossKills" type="Label" parent="."]
-margin_left = 220.0
+margin_left = 260.0
 margin_top = 128.0
-margin_right = 270.0
+margin_right = 335.0
 margin_bottom = 142.0
-rect_min_size = Vector2( 50, 0 )
+rect_min_size = Vector2( 75, 0 )
 text = "5 bossk"
 align = 2
 clip_text = true
 
 [node name="time" type="Label" parent="."]
-margin_left = 280.0
+margin_left = 355.0
 margin_top = 128.0
-margin_right = 330.0
+margin_right = 405.0
 margin_bottom = 142.0
 rect_min_size = Vector2( 50, 0 )
 text = "9:00:50"
@@ -46,11 +56,11 @@ align = 2
 clip_text = true
 
 [node name="score" type="Label" parent="."]
-margin_left = 340.0
+margin_left = 425.0
 margin_top = 128.0
-margin_right = 420.0
+margin_right = 475.0
 margin_bottom = 142.0
-rect_min_size = Vector2( 80, 0 )
+rect_min_size = Vector2( 50, 0 )
 text = "9:00:50"
 align = 2
 clip_text = true

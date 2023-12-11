@@ -20,6 +20,8 @@ onready var animated_sprite: AnimatedSprite = get_node("AnimatedSprite")
 var mov_direction: Vector2 = Vector2.ZERO
 var velocity: Vector2 = Vector2.ZERO
 
+var is_boss: bool = false
+
 
 func _physics_process(_delta: float) -> void:
 	velocity = move_and_slide(velocity)
@@ -39,12 +41,18 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 		if name == "Player":
 			SavedData.hp = hp
 			if hp == 0:
-				SceneTransistor.start_transition_to("res://Game.tscn")
-				SavedData.reset_data()
+				SceneTransistor.start_transition_to("res://EndScreen/EndScreen.tscn")
 		if hp > 0:
 			state_machine.set_state(state_machine.states.hurt)
 			velocity += dir * force
 		else:
+			if(is_boss):
+				SavedData.num_bKills += 1
+				pass
+			else:
+				SavedData.num_kills += 1
+				pass
+			
 			state_machine.set_state(state_machine.states.dead)
 			velocity += dir * force * 2
 		

@@ -58,6 +58,8 @@ config/icon="res://icon.png"
 
 SceneTransistor="*res://Autoloads/SceneTransistor.tscn"
 SavedData="*res://Autoloads/SavedData.gd"
+DataUtils="*res://Autoloads/DataUtils.gd"
+LeaderboardData="*res://Autoloads/LeaderboardData.gd"
 
 [display]
 
@@ -69,6 +71,10 @@ mouse_cursor/custom_image="res://Art/v1.1 dungeon crawler 16x16 pixel pack/ui (n
 mouse_cursor/custom_image_hotspot=Vector2( 16, 16 )
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/ridiculous_coding/plugin.cfg" )
 
 [importer_defaults]
 
