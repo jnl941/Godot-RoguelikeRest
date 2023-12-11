@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://MainScreen/MainScreen.gd" type="Script" id=1]
+[ext_resource path="res://MainScreen/FF6_Battle_Cursor_4x.png" type="Texture" id=2]
+
+[node name="MainScreen" type="Control"]
+script = ExtResource( 1 )
+
+[node name="buttons" type="VBoxContainer" parent="."]
+margin_left = 187.0
+margin_top = 107.0
+margin_right = 278.0
+margin_bottom = 151.0
+mouse_filter = 0
+
+[node name="bStartGame" type="Button" parent="buttons"]
+margin_right = 91.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 46, 10 )
+text = "Start Game"
+
+[node name="bLeaderboard" type="Button" parent="buttons"]
+margin_top = 24.0
+margin_right = 91.0
+margin_bottom = 44.0
+text = "Leaderboard"
+
+[node name="cursor" type="Sprite" parent="."]
+position = Vector2( 170, 114 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="buttons/bStartGame" to="." method="_on_bStartGame_pressed"]
+[connection signal="pressed" from="buttons/bLeaderboard" to="." method="_on_bLeaderboard_pressed"]
