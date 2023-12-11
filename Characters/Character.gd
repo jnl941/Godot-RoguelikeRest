@@ -50,7 +50,8 @@ func take_damage(dam: int, dir: Vector2, force: int) -> void:
 				SavedData.num_bKills += 1
 				pass
 			else:
-				SavedData.num_kills += 1
+				if name != "Player":
+					SavedData.num_kills += 1
 				pass
 			
 			state_machine.set_state(state_machine.states.dead)
