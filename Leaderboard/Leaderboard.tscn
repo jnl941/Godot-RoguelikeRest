@@ -12,17 +12,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 9.0
 
-[node name="tLeaderboard" type="Label" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_right = 480.0
+margin_bottom = 13.0
+rect_min_size = Vector2( 0, 13 )
+
+[node name="tLeaderboard" type="Label" parent="VBoxContainer/Control"]
 margin_right = 480.0
 margin_bottom = 14.0
 text = "Leaderboard"
 align = 1
 valign = 1
 
+[node name="bClear" type="Button" parent="VBoxContainer/Control"]
+margin_right = 12.0
+margin_bottom = 20.0
+text = "CLEAR"
+
 [node name="buttons" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 18.0
+margin_top = 17.0
 margin_right = 480.0
-margin_bottom = 38.0
+margin_bottom = 37.0
 alignment = 1
 
 [node name="bHighestFloor" type="Button" parent="VBoxContainer/buttons"]
@@ -56,9 +66,9 @@ margin_bottom = 20.0
 text = "Longest"
 
 [node name="pages" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 42.0
+margin_top = 41.0
 margin_right = 480.0
-margin_bottom = 62.0
+margin_bottom = 61.0
 alignment = 1
 
 [node name="previousPage" type="Button" parent="VBoxContainer/pages"]
@@ -74,9 +84,9 @@ margin_bottom = 20.0
 text = ">>"
 
 [node name="PlayerRow2" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 66.0
+margin_top = 65.0
 margin_right = 480.0
-margin_bottom = 80.0
+margin_bottom = 79.0
 custom_constants/separation = 20
 
 [node name="name" type="Label" parent="VBoxContainer/PlayerRow2"]
@@ -134,9 +144,9 @@ align = 2
 clip_text = true
 
 [node name="list" type="ScrollContainer" parent="VBoxContainer"]
-margin_top = 84.0
+margin_top = 83.0
 margin_right = 480.0
-margin_bottom = 234.0
+margin_bottom = 233.0
 rect_min_size = Vector2( 0, 150 )
 
 [node name="listVBox" type="VBoxContainer" parent="VBoxContainer/list"]
@@ -145,9 +155,9 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 480, 150 )
 
 [node name="bottom" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 238.0
+margin_top = 237.0
 margin_right = 480.0
-margin_bottom = 262.0
+margin_bottom = 261.0
 custom_constants/separation = 75
 
 [node name="bGoBack" type="Button" parent="VBoxContainer/bottom"]
@@ -185,6 +195,9 @@ text = "Search Player"
 
 [node name="PlayerCountHTTPRequest" type="HTTPRequest" parent="."]
 
+[node name="ClearHTTPRequest" type="HTTPRequest" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/Control/bClear" to="." method="_on_bClear_pressed"]
 [connection signal="pressed" from="VBoxContainer/buttons/bHighestFloor" to="." method="_on_bHighestFloor_pressed"]
 [connection signal="pressed" from="VBoxContainer/buttons/bScore" to="." method="_on_bScore_pressed"]
 [connection signal="pressed" from="VBoxContainer/buttons/bKills" to="." method="_on_bKills_pressed"]
@@ -197,3 +210,4 @@ text = "Search Player"
 [connection signal="pressed" from="VBoxContainer/bottom/searchplayer/b_search_player" to="." method="_on_b_search_player_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="PlayerCountHTTPRequest" to="." method="_on_PlayerCountHTTPRequest_request_completed"]
+[connection signal="request_completed" from="ClearHTTPRequest" to="." method="_on_ClearHTTPRequest_request_completed"]

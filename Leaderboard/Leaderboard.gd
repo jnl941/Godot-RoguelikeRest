@@ -91,6 +91,8 @@ func _on_bGoBack_pressed():
 
 
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
+	if(body == null):
+		return
 	var received_dict: Dictionary = parse_json(body.get_string_from_utf8())
 	if(received_dict.keys().empty()):
 		return
@@ -125,4 +127,14 @@ func _on_b_search_player_pressed():
 	if($VBoxContainer/bottom/searchplayer/input_player.text == ""):
 		return
 	_on_input_player_text_entered($VBoxContainer/bottom/searchplayer/input_player.text)
+	pass # Replace with function body.
+
+
+func _on_bClear_pressed():
+	$ClearHTTPRequest.request("http://atesting7723.eu.pythonanywhere.com/leaderboard/clear")
+	pass # Replace with function body.
+
+
+func _on_ClearHTTPRequest_request_completed(result, response_code, headers, body):
+	update_page(0)
 	pass # Replace with function body.
