@@ -7,6 +7,7 @@ extends Control
 onready var list: VBoxContainer = $VBoxContainer/list/listVBox
 var page_num: int = 0
 var page_count: int = 0
+var sort_mode: String = "score"
 onready var playerRow_tscn: PackedScene = preload("res://Leaderboard/PlayerRow.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,22 +25,32 @@ func _ready():
 
 
 func _on_bHighestFloor_pressed():
+	sort_mode = "floors"
+	update_page(0)
 	pass # Replace with function body.
 
 
 func _on_bScore_pressed():
+	sort_mode = "score"
+	update_page(0)
 	pass # Replace with function body.
 
 
 func _on_bKills_pressed():
+	sort_mode = "kills"
+	update_page(0)
 	pass # Replace with function body.
 
 
 func _on_bBossKills_pressed():
+	sort_mode = "boss_kills"
+	update_page(0)
 	pass # Replace with function body.
 
 
 func _on_bShortest_pressed():
+	sort_mode = "time"
+	update_page(0)
 	pass # Replace with function body.
 
 
@@ -54,7 +65,7 @@ func _on_nextPage_pressed():
 
 func update_page(page: int):
 	page_num = clamp(page, 0, page_count-1)
-	LeaderboardData.get_data_page(page, $HTTPRequest)
+	LeaderboardData.get_data_page(page, $HTTPRequest, sort_mode)
 	
 func update_pages_label():
 	$VBoxContainer/bottom/pages_num.text = "Page " + String(page_num+1) + " / " + String(page_count)
