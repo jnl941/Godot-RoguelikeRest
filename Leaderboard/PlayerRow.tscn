@@ -35,7 +35,7 @@ text = "9 kills"
 align = 2
 clip_text = true
 
-[node name="bossKills" type="Label" parent="."]
+[node name="boss_kills" type="Label" parent="."]
 margin_left = 260.0
 margin_top = 128.0
 margin_right = 335.0

@@ -17,7 +17,7 @@ func get_data_as_dict(name: String) -> Dictionary:
 		"pname": name,
 		"floors": num_floor,
 		"kills": num_kills,
-		"bossKills": num_bKills,
+		"boss_kills": num_bKills,
 		"time": time_secs
 	}
 	return data

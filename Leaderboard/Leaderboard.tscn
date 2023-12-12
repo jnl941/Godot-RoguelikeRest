@@ -163,6 +163,10 @@ margin_bottom = 17.0
 text = "Page 0 / 0"
 align = 2
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="PlayerCountHTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="VBoxContainer/buttons/bHighestFloor" to="." method="_on_bHighestFloor_pressed"]
 [connection signal="pressed" from="VBoxContainer/buttons/bScore" to="." method="_on_bScore_pressed"]
 [connection signal="pressed" from="VBoxContainer/buttons/bKills" to="." method="_on_bKills_pressed"]
@@ -171,3 +175,5 @@ align = 2
 [connection signal="pressed" from="VBoxContainer/pages/previousPage" to="." method="_on_previousPage_pressed"]
 [connection signal="pressed" from="VBoxContainer/pages/nextPage" to="." method="_on_nextPage_pressed"]
 [connection signal="pressed" from="VBoxContainer/bottom/bGoBack" to="." method="_on_bGoBack_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
+[connection signal="request_completed" from="PlayerCountHTTPRequest" to="." method="_on_PlayerCountHTTPRequest_request_completed"]

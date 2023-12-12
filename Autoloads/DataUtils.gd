@@ -8,7 +8,7 @@ export var score_per_second: int = -1
 
 
 func get_score(data: Dictionary) -> int:
-	return data["kills"] * score_per_kill + data["bossKills"] * score_per_bossKill + data["floors"] * score_per_floor + data["time"] * score_per_second
+	return data["kills"] * score_per_kill + data["boss_kills"] * score_per_bossKill + data["floors"] * score_per_floor + data["time"] * score_per_second
 
 func get_date_from_seconds(seconds: int) -> String:
 	var hour: int = (seconds/3600)

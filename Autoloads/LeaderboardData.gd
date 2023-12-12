@@ -30,17 +30,23 @@ func save_data_local(player_name: String):
 	
 	players[page_num]["players"].append(data_to_send)
 	
+func post_data(player_name: String, http_requester: HTTPRequest):
+	var data_to_send: String = to_json(SavedData.get_data_as_dict(player_name))
+	var headers = ["Content-Type: application/json"]
+	http_requester.request("https://atesting7723.eu.pythonanywhere.com/newEntry", headers, true, HTTPClient.METHOD_POST, data_to_send)
+
 	
 func get_data_local() -> Dictionary:
 	rest_api_json_string = JSON.print(rest_api_json)
 	return parse_json(rest_api_json_string)
 	
 
-func get_data_page(page_num : int) -> Dictionary:
-	var data: Dictionary = get_data_local()
-	if(!typeof(data) == TYPE_DICTIONARY || !data.has("pages") || page_num+1 > data["pages"].size()):
-		return Dictionary()
-	return data["pages"][page_num]
+func get_data_page(page_num : int, http_requester: HTTPRequest) -> void:
+	http_requester.request("http://atesting7723.eu.pythonanywhere.com/leaderboard?page=" + String(page_num))
+	#var data: Dictionary = get_data_local()
+	#if(!typeof(data) == TYPE_DICTIONARY || !data.has("pages") || page_num+1 > data["pages"].size()):
+	#	return Dictionary()
+	#return data["pages"][page_num]
 
 	# Save data
 # Called every frame. 'delta' is the elapsed time since the previous frame.

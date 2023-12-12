@@ -67,5 +67,8 @@ margin_right = 29.0
 margin_bottom = 20.0
 text = "End"
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="text_changed" from="VBoxContainer/Control/name" to="." method="_on_name_text_changed"]
 [connection signal="pressed" from="VBoxContainer/Control2/bEnd" to="." method="_on_bEnd_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]

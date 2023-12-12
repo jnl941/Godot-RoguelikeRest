@@ -24,7 +24,12 @@ func _on_name_text_changed():
 func _on_bEnd_pressed():
 	if(player_name == ""):
 		return
-	LeaderboardData.save_data_local(player_name)
+	LeaderboardData.post_data(player_name, $HTTPRequest)
+	
+	pass # Replace with function body.
+
+
+func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	SavedData.reset_data()
 	SceneTransistor.start_transition_to("res://MainScreen/MainScreen.tscn")
 	pass # Replace with function body.
