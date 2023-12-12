@@ -16,7 +16,7 @@ func _ready():
 #	pass
 
 
-func _on_name_text_changed():
+func _on_name_text_changed(new_text):
 	player_name = $VBoxContainer/Control/name.text
 	pass # Replace with function body.
 
@@ -32,4 +32,9 @@ func _on_bEnd_pressed():
 func _on_HTTPRequest_request_completed(result, response_code, headers, body):
 	SavedData.reset_data()
 	SceneTransistor.start_transition_to("res://MainScreen/MainScreen.tscn")
+	pass # Replace with function body.
+
+
+func _on_name_text_entered(new_text):
+	_on_bEnd_pressed()
 	pass # Replace with function body.

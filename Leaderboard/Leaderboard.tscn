@@ -147,21 +147,39 @@ rect_min_size = Vector2( 480, 150 )
 [node name="bottom" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 238.0
 margin_right = 480.0
-margin_bottom = 258.0
-custom_constants/separation = 134
+margin_bottom = 262.0
+custom_constants/separation = 75
 
 [node name="bGoBack" type="Button" parent="VBoxContainer/bottom"]
 margin_right = 64.0
-margin_bottom = 20.0
+margin_bottom = 24.0
 text = "Go Back"
 
 [node name="pages_num" type="Label" parent="VBoxContainer/bottom"]
-margin_left = 198.0
-margin_top = 3.0
-margin_right = 261.0
-margin_bottom = 17.0
+margin_left = 139.0
+margin_top = 5.0
+margin_right = 202.0
+margin_bottom = 19.0
 text = "Page 0 / 0"
 align = 2
+
+[node name="searchplayer" type="HBoxContainer" parent="VBoxContainer/bottom"]
+margin_left = 277.0
+margin_right = 478.0
+margin_bottom = 24.0
+alignment = 2
+
+[node name="input_player" type="LineEdit" parent="VBoxContainer/bottom/searchplayer"]
+margin_right = 100.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 100, 0 )
+max_length = 12
+
+[node name="b_search_player" type="Button" parent="VBoxContainer/bottom/searchplayer"]
+margin_left = 104.0
+margin_right = 201.0
+margin_bottom = 24.0
+text = "Search Player"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
@@ -175,5 +193,7 @@ align = 2
 [connection signal="pressed" from="VBoxContainer/pages/previousPage" to="." method="_on_previousPage_pressed"]
 [connection signal="pressed" from="VBoxContainer/pages/nextPage" to="." method="_on_nextPage_pressed"]
 [connection signal="pressed" from="VBoxContainer/bottom/bGoBack" to="." method="_on_bGoBack_pressed"]
+[connection signal="text_entered" from="VBoxContainer/bottom/searchplayer/input_player" to="." method="_on_input_player_text_entered"]
+[connection signal="pressed" from="VBoxContainer/bottom/searchplayer/b_search_player" to="." method="_on_b_search_player_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_HTTPRequest_request_completed"]
 [connection signal="request_completed" from="PlayerCountHTTPRequest" to="." method="_on_PlayerCountHTTPRequest_request_completed"]
