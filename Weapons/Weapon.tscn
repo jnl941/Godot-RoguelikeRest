@@ -298,17 +298,14 @@ script = ExtResource( 6 )
 [node name="AbilityIcon" type="TextureProgress" parent="UI"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 24.0
-margin_top = -82.0
-margin_right = 404.0
-margin_bottom = 298.0
-rect_scale = Vector2( 0.15, 0.15 )
+margin_left = 16.0
+margin_top = -55.0
+margin_right = 396.0
+margin_bottom = 325.0
+rect_scale = Vector2( 0.1, 0.1 )
 texture_progress = ExtResource( 4 )
 fill_mode = 8
 tint_progress = Color( 0.25098, 0.235294, 0.235294, 0.839216 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Tween" type="Tween" parent="UI"]
 
