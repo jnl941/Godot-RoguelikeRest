@@ -9,7 +9,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 1 )
-shader_param/active = false
+shader_param/active = true
 
 [sub_resource type="ParticlesMaterial" id=2]
 flag_disable_z = true
@@ -164,10 +164,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.2, 0.4, 0.6, 0.8, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.2, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true, false, true ]
+"values": [ true, true, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Node2D/Sprite/ChargeParticles:emitting")
@@ -266,10 +266,8 @@ script = ExtResource( 3 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/Sprite/Hitbox"]
 position = Vector2( 5.65685, -4.24264 )
 rotation = 0.785398
-disabled = true
 
 [node name="ChargeParticles" type="Particles2D" parent="Node2D/Sprite"]
-emitting = false
 amount = 15
 lifetime = 0.6
 process_material = SubResource( 2 )

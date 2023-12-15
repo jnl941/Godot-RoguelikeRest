@@ -10,7 +10,7 @@
 [sub_resource type="ShaderMaterial" id=6]
 resource_local_to_scene = true
 shader = ExtResource( 4 )
-shader_param/active = false
+shader_param/active = true
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 2.0
@@ -240,10 +240,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false, true, false, true ]
+"values": [ true, true, true ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Node2D/Sprite/ChargeParticles:emitting")
@@ -252,10 +252,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 1,
-"values": [ true ]
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -331,20 +331,21 @@ position = Vector2( 7, 3 )
 texture = ExtResource( 3 )
 
 [node name="Hitbox" parent="Node2D/Sprite" index="0"]
+damage = 2
 knockback_force = 200
 
 [node name="CollisionShape2D" parent="Node2D/Sprite/Hitbox" index="0"]
+scale = Vector2( 1, 4 )
 shape = SubResource( 1 )
 
 [node name="ChargeParticles" parent="Node2D/Sprite" index="1"]
 position = Vector2( 5.65685, -4.24264 )
 
 [node name="SlashSprite" type="Sprite" parent="." index="1"]
-visible = false
-position = Vector2( 18, 0 )
+position = Vector2( 26, 0 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 hframes = 3
-frame = 2
 
 [node name="AnimationPlayer" parent="." index="3"]
 anims/active_ability = ExtResource( 5 )
