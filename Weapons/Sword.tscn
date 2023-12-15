@@ -354,6 +354,6 @@ anims/charge = SubResource( 4 )
 anims/strong_attack = SubResource( 5 )
 
 [node name="AbilityIcon" parent="UI" index="0"]
-margin_top = -54.0
-margin_bottom = 326.0
+margin_top = -140.0
+margin_bottom = 240.0
 texture_under = ExtResource( 6 )

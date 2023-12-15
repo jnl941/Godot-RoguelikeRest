@@ -42,16 +42,15 @@ func _restore_previous_state() -> void:
 func _process(_delta: float) -> void:
 	var mouse_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	
-	if mouse_direction.x > 0 and animated_sprite.flip_h:
-		animated_sprite.flip_h = false
-	elif mouse_direction.x < 0 and not animated_sprite.flip_h:
-		animated_sprite.flip_h = true
+	
 		
-	current_weapon.move(mouse_direction)
+	get_input_joystick()
+	get_input_joystick_attack()
+	
 		
-		
+
 func get_input() -> void:
-	mov_direction = Vector2.ZERO
+	#mov_direction = Vector2.ZERO
 	if Input.is_action_pressed("ui_down"):
 		mov_direction += Vector2.DOWN
 	if Input.is_action_pressed("ui_left"):
@@ -71,6 +70,30 @@ func get_input() -> void:
 		
 	current_weapon.get_input()
 	
+func get_input_joystick() -> void:
+	mov_direction = get_parent().get_node("UI").get_node("V_DPad").get_output()
+	print(mov_direction)
+	if(mov_direction.length() == 0):
+		return
+	if mov_direction.x > 0 and animated_sprite.flip_h:
+		animated_sprite.flip_h = false
+	elif mov_direction.x < 0 and not animated_sprite.flip_h:
+		animated_sprite.flip_h = true
+	if(attk_direction.length() == 0):
+		current_weapon.move(mov_direction)
+	current_weapon.get_input()
+var attk_direction: Vector2 = Vector2.ZERO
+func get_input_joystick_attack() -> void:
+	attk_direction = get_parent().get_node("UI").get_node("V_DPad2").get_output()
+	if(attk_direction.length() == 0):
+		Input.action_release("ui_attack")
+		return
+	Input.action_press("ui_attack")
+	if attk_direction.x > 0 and animated_sprite.flip_h:
+		animated_sprite.flip_h = false
+	elif attk_direction.x < 0 and not animated_sprite.flip_h:
+		animated_sprite.flip_h = true
+	current_weapon.move(attk_direction)
 	
 func _switch_weapon(direction: int) -> void:
 	var prev_index: int = current_weapon.get_index()
@@ -91,7 +114,15 @@ func _switch_weapon(direction: int) -> void:
 	
 	emit_signal("weapon_switched", prev_index, index)
 	
-	
+func _switch_weapon_touch(index: int) -> void:
+	if current_weapon.is_busy():
+		return
+	current_weapon.hide()
+	current_weapon = weapons.get_child(index)
+	current_weapon.show()
+	SavedData.equipped_weapon_index = index
+	emit_signal("weapon_switched", 0, index)
+
 func pick_up_weapon(weapon: Node2D) -> void:
 	SavedData.weapons.append(weapon.duplicate())
 	var prev_index: int = SavedData.equipped_weapon_index

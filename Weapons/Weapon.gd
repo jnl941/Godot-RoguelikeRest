@@ -102,3 +102,4 @@ func hide() -> void:
 	
 func get_texture() -> Texture:
 	return get_node("Node2D/Sprite").texture
+
