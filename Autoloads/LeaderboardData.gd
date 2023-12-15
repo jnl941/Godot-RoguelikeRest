@@ -41,18 +41,11 @@ func get_data_local() -> Dictionary:
 	return parse_json(rest_api_json_string)
 	
 
-func get_data_page(page_num : int, http_requester: HTTPRequest, sort: String, searched_player: String) -> void:
+func get_data_page(page_num : int, http_requester: HTTPRequest, 
+					sort: String, searched_player: String) -> void:
 	if(searched_player == ""):
-		http_requester.request("http://atesting7723.eu.pythonanywhere.com/leaderboard?page=" + String(page_num) + "&sort=" + sort)
+		http_requester.request("http://atesting7723.eu.pythonanywhere.com/leaderboard?page=" 
+								+ String(page_num) + "&sort=" + sort)
 	else:
-		http_requester.request("http://atesting7723.eu.pythonanywhere.com/leaderboard/" + searched_player + "?page=" + String(page_num) + "&sort=" + sort)
-		
-	#var data: Dictionary = get_data_local()
-	#if(!typeof(data) == TYPE_DICTIONARY || !data.has("pages") || page_num+1 > data["pages"].size()):
-	#	return Dictionary()
-	#return data["pages"][page_num]
-
-	# Save data
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+		http_requester.request("http://atesting7723.eu.pythonanywhere.com/leaderboard/" 
+								+ searched_player + "?page=" + String(page_num) + "&sort=" + sort)
