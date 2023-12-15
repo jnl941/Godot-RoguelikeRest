@@ -13,9 +13,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	var request_body = to_json({"valor1": "algo arbitrario"})
 	requester.request("http://atesting7723.eu.pythonanywhere.com")
-#	requester.request("http://atesting7723.eu.pythonanywhere.com", [], true, HTTPClient.METHOD_POST, request_body)
 	
 	
 func _input(event: InputEvent) -> void:
