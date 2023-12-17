@@ -288,6 +288,7 @@ visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." index="5"]
 current = true
+zoom = Vector2( 0.6, 0.6 )
 
 [node name="DustPosition" type="Position2D" parent="." index="6"]
 position = Vector2( 0, 6 )

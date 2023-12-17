@@ -9,7 +9,7 @@
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 1 )
-shader_param/active = true
+shader_param/active = false
 
 [sub_resource type="ParticlesMaterial" id=2]
 flag_disable_z = true
@@ -268,6 +268,7 @@ position = Vector2( 5.65685, -4.24264 )
 rotation = 0.785398
 
 [node name="ChargeParticles" type="Particles2D" parent="Node2D/Sprite"]
+emitting = false
 amount = 15
 lifetime = 0.6
 process_material = SubResource( 2 )
@@ -296,14 +297,19 @@ script = ExtResource( 6 )
 [node name="AbilityIcon" type="TextureProgress" parent="UI"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 425.0
+margin_left = 481.0
 margin_top = -163.0
-margin_right = 805.0
+margin_right = 861.0
 margin_bottom = 217.0
 rect_scale = Vector2( 0.1, 0.1 )
 texture_progress = ExtResource( 4 )
 fill_mode = 8
 tint_progress = Color( 0.25098, 0.235294, 0.235294, 0.839216 )
+
+[node name="bTouchAbility" type="Button" parent="UI/AbilityIcon"]
+self_modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="Tween" type="Tween" parent="UI"]
 
@@ -311,3 +317,4 @@ tint_progress = Color( 0.25098, 0.235294, 0.235294, 0.839216 )
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_PlayerDetector_body_entered"]
 [connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
 [connection signal="timeout" from="CoolDownTimer" to="." method="_on_CoolDownTimer_timeout"]
+[connection signal="pressed" from="UI/AbilityIcon/bTouchAbility" to="." method="_on_bTouchAbility_pressed"]

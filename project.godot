@@ -69,7 +69,7 @@ LeaderboardData="*res://Autoloads/LeaderboardData.gd"
 
 [display]
 
-window/size/width=480
+window/size/width=540
 window/size/height=270
 window/size/test_width=1280
 window/size/test_height=720

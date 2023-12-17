@@ -103,3 +103,8 @@ func hide() -> void:
 func get_texture() -> Texture:
 	return get_node("Node2D/Sprite").texture
 
+
+
+func _on_bTouchAbility_pressed():
+	Input.action_press("ui_active_ability")
+	pass # Replace with function body.

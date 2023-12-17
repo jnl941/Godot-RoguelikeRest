@@ -20,8 +20,8 @@ func _ready() -> void:
 	SavedData.player = self
 	
 	_restore_previous_state()
-	
-	
+	Input.action_press("ui_attack")
+	_switch_weapon(UP)
 func _restore_previous_state() -> void:
 	self.hp = SavedData.hp
 	for weapon in SavedData.weapons:
